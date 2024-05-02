@@ -1,0 +1,9 @@
+/*
+/*/
+!/Makefile
+!.gitignore
+!/.scalafmt.conf
+!/build.sc
+!/README.md
+!/.mill-version
+!/src
