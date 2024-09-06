@@ -4,7 +4,7 @@ PRJ = playground
 
 # Chisel Config
 CHISEL_BUILD_DIR      = $(BUILD_DIR)/chisel
-CHISEL_DIR            = $(TOP_DIR)/src
+CHISEL_DIR            = $(TOP_DIR)/$(PRJ)
 CHISEL_BUILD_TOP_VSRC = $(CHISEL_BUILD_DIR)/$(TOP_NAME).sv
 CHISEL_BUILD_VSRC     = $(foreach dir,$(CHISEL_BUILD_DIR),$(wildcard $(dir)/*.v)) $(foreach dir,$(CHISEL_BUILD_DIR),$(wildcard $(dir)/*.sv))
 CHISEL_MAIN_DIR       = $(CHISEL_DIR)/main
@@ -24,20 +24,22 @@ $(CHISEL_BUILD_TOP_VSRC): $(CHISEL_MAIN_PATH)
 test:
 	mill -i $(PRJ).test
 
-fmt:
+help:
+	mill -i $(PRJ).runMain Elaborate --help
+
+reformat:
 	mill -i __.reformat
 
 checkformat:
 	mill -i __.checkFormat
 
-compile:
-	mill -i __.compile
-
-help:
-	@mill -i __.runMain $(CHISEL_TOOL) --help
-
-clean-v:
-	@rm -rf $(CHISEL_BUILD_DIR)
-
 clean:
-	@rm -rf $(BUILD_DIR)
+	-rm -rf $(BUILD_DIR)
+
+.PHONY: test verilog help reformat checkformat clean
+
+sim:
+	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
+	@echo "Write this Makefile by yourself."
+
+-include ../Makefile
