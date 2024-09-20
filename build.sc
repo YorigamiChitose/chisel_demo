@@ -23,7 +23,7 @@ object playground extends SbtModule with ScalafmtModule { m =>
   override def scalacPluginIvyDeps = Agg(
     ivy"org.chipsalliance:::chisel-plugin:6.5.0"
   )
-  object test extends SbtModuleTests with TestModule.ScalaTest with ScalafmtModule {
+  object test extends SbtTests with TestModule.ScalaTest with ScalafmtModule {
     override def sources = T.sources {
       super.sources() ++ Seq(PathRef(this.millSourcePath / "test"))
     }
