@@ -16,7 +16,7 @@ jobs:
     - name: Install make and verilator
       run: |
         sudo apt-get update
-        sudo apt-get install -y make verilator
+        sudo apt-get install -y make verilator z3
 
     - name: Clone lefou/millw repository
       run: |
