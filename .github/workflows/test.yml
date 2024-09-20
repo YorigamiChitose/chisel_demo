@@ -1,13 +1,25 @@
-on: [push]
+name: CI
+
+on:
+  push:
+    branches:
+      - main  # 或者你希望触发 Action 的分支
+
 jobs:
-  checks:
+  build:
     runs-on: ubuntu-latest
-    container: archlinux/archlinux:latest
+
     steps:
-      - name: Install dependencies
-        run: pacman -Syu --noconfirm make mill z3
-      - uses: actions/checkout@v2
-      - name: Check Format
-        run: make checkformat
-      - name: Test
-        run: make test
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Clone lefou/millw repository
+      run: |
+        git clone https://github.com/lefou/millw.git
+        sudo ln -sf $(pwd)/millw/millw /usr/bin/mill
+
+    - name: Run make checkformat
+      run: make checkformat
+
+    - name: Run make test
+      run: make test
