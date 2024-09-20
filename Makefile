@@ -18,7 +18,7 @@ verilog: $(CHISEL_BUILD_TOP_VSRC)
 $(CHISEL_BUILD_TOP_VSRC): $(CHISEL_MAIN_PATH)
 	@echo --- verilog start  ---
 	@mkdir -p $(CHISEL_BUILD_DIR)
-	@mill -i $(PRJ).runMain $(CHISEL_TOOL) --split-verilog -td $(CHISEL_BUILD_DIR)
+	mill -i $(PRJ).runMain $(CHISEL_TOOL) --split-verilog -td $(CHISEL_BUILD_DIR)
 	@echo --- verilog finish ---
 
 test:
@@ -34,12 +34,6 @@ checkformat:
 	mill -i __.checkFormat
 
 clean:
-	-rm -rf $(BUILD_DIR)
+	rm -rf $(BUILD_DIR)
 
 .PHONY: test verilog help reformat checkformat clean
-
-sim:
-	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
-	@echo "Write this Makefile by yourself."
-
--include ../Makefile
