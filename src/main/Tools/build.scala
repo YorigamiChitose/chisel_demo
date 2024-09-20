@@ -10,7 +10,7 @@ object build extends App {
       "locationInfoStyle=none"
     ).reduce(_ + "," + _)
   )
-  val firtoolNormalOptions = Array("--disable-all-randomization")
+  val firtoolNormalOptions   = Array("--disable-all-randomization")
 
   val firtoolOptions = firtoolNormalOptions ++ firtoolLoweringOptions
 
