@@ -1,6 +1,6 @@
 package test.Example
 
-import main.Example.adder
+import Example.adder
 import scala.util.Random
 
 import chisel3._
