@@ -1,6 +1,6 @@
-package main.Tools
+package Tools
 
-import main.Example.adder
+import Example.adder
 
 object build extends App {
   val firtoolLoweringOptions = Array(
@@ -17,5 +17,5 @@ object build extends App {
   println("firtool options:")
   firtoolOptions.foreach(opt => println("\t" + opt))
 
-  circt.stage.ChiselStage.emitSystemVerilogFile(new adder(64), args, firtoolOptions)
+  circt.stage.ChiselStage.emitSystemVerilogFile(new adder(32), args, firtoolOptions)
 }

@@ -1,4 +1,4 @@
-package main.Example
+package Example
 
 import chisel3._
 
