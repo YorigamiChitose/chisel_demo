@@ -17,20 +17,20 @@ verilog: $(CHISEL_BUILD_TOP_VSRC)
 $(CHISEL_BUILD_TOP_VSRC): $(CHISEL_SRC_PATH)
 	@echo --- verilog start  ---
 	@mkdir -p $(CHISEL_BUILD_DIR)
-	mill -i $(PRJ).runMain $(CHISEL_TOOL) --split-verilog -td $(CHISEL_BUILD_DIR)
+	millw -i $(PRJ).runMain $(CHISEL_TOOL) --split-verilog -td $(CHISEL_BUILD_DIR)
 	@echo --- verilog finish ---
 
 test:
-	mill -i $(PRJ).test
+	millw -i $(PRJ).test
 
 help:
-	mill -i $(PRJ).runMain Elaborate --help
+	millw -i $(PRJ).runMain Elaborate --help
 
 reformat:
-	mill -i __.reformat
+	millw -i __.reformat
 
 checkformat:
-	mill -i __.checkFormat
+	millw -i __.checkFormat
 
 clean:
 	rm -rf $(BUILD_DIR)
