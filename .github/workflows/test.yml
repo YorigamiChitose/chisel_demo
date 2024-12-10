@@ -21,7 +21,7 @@ jobs:
     - name: Clone lefou/millw repository
       run: |
         git clone https://github.com/lefou/millw.git
-        sudo ln -sf $(pwd)/millw/millw /usr/bin/mill
+        sudo ln -sf $(pwd)/millw/millw /usr/bin/millw
 
     - name: Run make checkformat
       run: make checkformat
