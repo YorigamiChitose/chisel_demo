@@ -7,7 +7,7 @@ import mill.scalalib._
 
 object playground extends SbtModule with ScalafmtModule { m =>
   override def millSourcePath = os.pwd / "src"
-  override def scalaVersion = "2.13.14"
+  override def scalaVersion = "2.13.15"
   override def scalacOptions = Seq(
     "-language:reflectiveCalls",
     "-deprecation",
@@ -18,10 +18,10 @@ object playground extends SbtModule with ScalafmtModule { m =>
     super.sources() ++ Seq(PathRef(millSourcePath / "main"))
   }
   override def ivyDeps = Agg(
-    ivy"org.chipsalliance::chisel:6.5.0"
+    ivy"org.chipsalliance::chisel:6.6.0"
   )
   override def scalacPluginIvyDeps = Agg(
-    ivy"org.chipsalliance:::chisel-plugin:6.5.0"
+    ivy"org.chipsalliance:::chisel-plugin:6.6.0"
   )
   object test extends SbtTests with TestModule.ScalaTest with ScalafmtModule {
     override def sources = T.sources {
