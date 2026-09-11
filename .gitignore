@@ -2,11 +2,11 @@
 /*/
 
 !/src/
+!/test/
 !/.github/
 
 !/Makefile
 !/.gitignore
 !/.scalafmt.conf
-!/build.sc
+!/build.mill
 !/README.md
-!/.mill-version
