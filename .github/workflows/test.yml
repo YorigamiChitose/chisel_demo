@@ -20,8 +20,8 @@ jobs:
 
     - name: Clone lefou/millw repository
       run: |
-        curl -L https://repo1.maven.org/maven2/com/lihaoyi/mill-dist/1.1.9/mill-dist-1.1.9-mill.sh -o mill
-        chmod +x mill
+        curl -L https://repo1.maven.org/maven2/com/lihaoyi/mill-dist/1.1.9/mill-dist-1.1.9-mill.sh -o /usr/local/bin/mill
+        chmod +x /usr/local/bin/mill
 
     - name: Run make checkformat
       run: make checkformat
