@@ -19,10 +19,10 @@ $(CHISEL_BUILD_TOP_VSRC): $(CHISEL_SRC_PATH)
 	@echo --- verilog finish ---
 
 test:
-	mill -i $(PRJ).test
+	mill -i test
 
 help:
-	mill -i $(PRJ).runMain Elaborate --help
+	mill -i runMain Elaborate --help
 
 reformat:
 	mill -i __.reformat
